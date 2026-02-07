@@ -23,6 +23,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      # gradlew : Gradle을 프로젝트에 포함된 버전으로 실행해주는 것
+      # chmod +x: 이 파일 실행해도 됨이라는 권한을 부여하는 명령어
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build -x test
+
+
       - name: Build with Gradle # ./gradlew build와 동일한 작업
         run: ./gradlew build -x test
         
