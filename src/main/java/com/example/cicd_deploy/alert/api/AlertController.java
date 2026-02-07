@@ -13,4 +13,8 @@ public class AlertController {
     public String alert() {
            return  "완벽합니다.";
     }
+     @GetMapping("/alert1")
+    public String alert1() {
+           return  "계속합니다.";
+    }
 }
