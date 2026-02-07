@@ -40,10 +40,10 @@ jobs:
       # EC2로 JAR 전송
       # 빌드된 .jar를 EC2 서버로 복사
       - name: Copy jar to EC2
-       run: |
-        JAR=$(ls build/libs/*.jar | grep -v plain | head -n 1)
-        echo "Deploying: $JAR"
-        scp -i ~/.ssh/ec2_key.pem -o StrictHostKeyChecking=no \
+        run: |
+          JAR=$(ls build/libs/*.jar | grep -v plain | head -n 1)
+          echo "Deploying: $JAR"
+          scp -i ~/.ssh/ec2_key.pem -o StrictHostKeyChecking=no \
             "$JAR" \
             ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/app.jar
           
